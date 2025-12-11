@@ -11,6 +11,8 @@ class Tarefa(models.Model):
     descricao = models.TextField(blank=True, null=True)
     prazo = models.DateTimeField()
     status = models.CharField(max_length=5, choices=STATUS_CHOICES, default='TODO')
+    # Novo campo de Tags (pode escrever: "Urgente, Instagram, Sesi-lab")
+    tags = models.CharField(max_length=255, blank=True, null=True) 
     criado_em = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

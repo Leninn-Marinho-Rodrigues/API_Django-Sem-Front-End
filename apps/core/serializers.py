@@ -6,4 +6,4 @@ class TarefaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tarefa
-        fields = '__all__'
+        fields = '__all__' # O '__all__' já pega o novo campo 'tags' automaticamente
