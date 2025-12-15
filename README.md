@@ -195,4 +195,4 @@ build.sh: Script que instala dependências e roda migrações automaticamente no
 
 settings.py: Configurado com STATIC_ROOT para servir arquivos estáticos corretamente.
 
-Desenvolvido como Projeto Integrador de Desenvolvimento Web
+Desenvolvido como Projeto Integrador de Desenvolvimento Web.
