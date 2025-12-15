@@ -5,18 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-change-me-later'
 DEBUG = True
-
-# Permite acesso de qualquer lugar (Codespace)
 ALLOWED_HOSTS = ['*']
-
-# --- CORREÇÃO DO ERRO 403 (CSRF) ---
-# Isso diz ao Django para confiar nos endereços do GitHub Codespaces
-CSRF_TRUSTED_ORIGINS = [
-    'https://*.github.dev',
-    'https://*.app.github.dev',
-    'https://localhost:8000',
-    'http://127.0.0.1:8000',
-]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -25,8 +14,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Bibliotecas de Terceiros
     'rest_framework',
     'corsheaders',
+    'drf_yasg',  # Adicionado para Swagger
+    
+    # Meus Apps
     'apps.core',
 ]
 
@@ -75,6 +69,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
