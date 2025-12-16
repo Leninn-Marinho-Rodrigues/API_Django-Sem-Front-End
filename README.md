@@ -108,9 +108,7 @@ API_Django-Sem-Front-End/
 ---
 
 ## 🗂 Diagrama de Banco de Dados
-![Diagrama ER](./docs/database_diagram.png)  
 
-> **D
 # Diagrama ER — API Design Team Flow
 
 ```mermaid
