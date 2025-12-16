@@ -1,4 +1,4 @@
-[schema.sql](https://github.com/user-attachments/files/24177871/schema.sql)# 🧩 API Django Sem Front-End
+🧩 API Django Sem Front-End
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg?logo=python)](https://www.python.org/downloads/)
 [![Django](https://img.shields.io/badge/Django-4.2%2B-green.svg?logo=Django)](https://www.djangoproject.com/)
