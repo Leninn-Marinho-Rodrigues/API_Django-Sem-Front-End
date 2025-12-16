@@ -172,13 +172,21 @@ python manage.py collectstatic
 Aqui estão algumas capturas de tela mostrando o funcionamento da aplicação:
 
 ### ✅ Tela Inicial da API
-![Tela Inicial](./docs/screenshots/tela_inicial.png)
+<img width="1920" height="1136" alt="image" src="https://github.com/user-attachments/assets/90345a88-ee77-41fa-b56a-58c33a452d81" />
+Imagem com teste criando tarefa:
+<img width="1920" height="3497" alt="image" src="https://github.com/user-attachments/assets/52ab0508-1b9d-408c-8c66-df656e190ad6" />
 
-### ✅ Documentação Swagger
-![Swagger UI](./docs/screenshots/swagger_ui.png)
+
+
+### ✅ Swagger
+<img width="1920" height="2678" alt="image" src="https://github.com/user-attachments/assets/46d99014-b6bd-40e2-803f-c75e71b1f0dd" />
+https://swagger.io/docs/open-source-tools/swagger-ui/usage/installation/
+
+
 
 ### ✅ Painel Administrativo
-![Admin Django](./docs/screenshots/admin_django.png)
+<img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/2d5a76b8-37db-4972-aca3-37dee33e9c0f" />
+
 
 > **Dica:** Salve suas imagens na pasta `docs/screenshots/` e atualize os nomes nos links acima.
 
