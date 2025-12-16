@@ -1,4 +1,4 @@
-# 🧩 API Django Sem Front-End
+[schema.sql](https://github.com/user-attachments/files/24177871/schema.sql)# 🧩 API Django Sem Front-End
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg?logo=python)](https://www.python.org/downloads/)
 [![Django](https://img.shields.io/badge/Django-4.2%2B-green.svg?logo=Django)](https://www.djangoproject.com/)
@@ -109,9 +109,101 @@ API_Django-Sem-Front-End/
 
 ## 🗂 Diagrama de Banco de Dados
 ![Diagrama ER](./docs/database_diagram.png)  
-> **Descrição:** Inclua um diagrama gerado por ferramentas como `django-extensions`.
+
+> **D
+# Diagrama ER — API Design Team Flow
+
+```mermaid
+erDiagram
+    USER ||--o{ TASK : assigns
+    TASK ||--o{ TASKTAG : has
+    TAG  ||--o{ TASKTAG : categorizes
+
+    USER {
+        int id PK
+        string username
+        string email
+        string first_name
+        string last_name
+        datetime date_joined
+    }
+
+    TASK {
+        int id PK
+        string title
+        text description
+        date due_date
+        enum status  "todo|doing|done"
+        enum priority "low|medium|high"
+        boolean is_completed
+        datetime created_at
+        datetime updated_at
+        int assignee_id FK
+    }
+
+    TAG {
+        int id PK
+        string name
+        string color
+    }
+
+    TASKTAG {
+        int id PK
+        int task_id FK
+        int tag_id FK
+    }
+```
+
+## Notas de Modelagem
+- **USER → TASK (1:N):** um usuário pode ser responsável por várias tarefas (campo `assignee`).
+- **TASK ↔ TAG (N:N):** uso da tabela de junção `TASKTAG` para permitir múltiplas tags por tarefa.
+- **Status/Priority:** podem ser enums nativos (PostgreSQL) ou `choices` no Django.
+- **is_completed & due_date:** suportam a lógica visual (atrasada/em dia/concluída) descrita no projeto.
+[Uploading ERD.md…]()
+escrição:** Inclua um diagrama gerado por ferramentas como `django-extensions`.
 
 ---
+No Schema.sql
+
+CREATE TABLE "user" (
+    id INTEGER PRIMARY KEY,
+    username VARCHAR(150) UNIQUE NOT NULL,
+    email VARCHAR(254),
+    first_name VARCHAR(150),
+    last_name VARCHAR(150),
+    date_joined TIMESTAMP NOT NULL
+);
+
+CREATE TABLE tag (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    color VARCHAR(7) -- HEX como '#FF0000'
+);
+
+CREATE TABLE task (
+    id INTEGER PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    description TEXT,
+    due_date DATE,
+    status VARCHAR(10) CHECK (status IN ('todo','doing','done')) DEFAULT 'todo',
+    priority VARCHAR(10) CHECK (priority IN ('low','medium','high')) DEFAULT 'medium',
+    is_completed BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL,
+    assignee_id INTEGER,
+    FOREIGN KEY (assignee_id) REFERENCES "user"(id)
+);
+
+CREATE TABLE tasktag (
+    id INTEGER PRIMARY KEY,
+    task_id INTEGER NOT NULL,
+    tag_id INTEGER NOT NULL,
+    FOREIGN KEY (task_id) REFERENCES task(id) ON DELETE CASCADE,
+    FOREIGN KEY (tag_id) REFERENCES tag(id) ON DELETE CASCADE,
+    UNIQUE (task_id, tag_id)
+);
+ding schema.sql…]()
+
 
 ## 📚 Documentação da API
 - **Swagger UI:**  
