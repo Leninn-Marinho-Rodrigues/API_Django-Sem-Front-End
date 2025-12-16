@@ -278,7 +278,6 @@ https://swagger.io/docs/open-source-tools/swagger-ui/usage/installation/
 <img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/2d5a76b8-37db-4972-aca3-37dee33e9c0f" />
 
 
-> **Dica:** Salve suas imagens na pasta `docs/screenshots/` e atualize os nomes nos links acima.
 
 ---
 
